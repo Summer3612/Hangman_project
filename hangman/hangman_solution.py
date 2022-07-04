@@ -40,7 +40,7 @@ class Hangman:
     ask_letter()
         Asks the user for a letter.
     '''
-    def __init__(self, word_list, num_lives=5):
+    def __init__(self, word_list, num_lives=4):
         # TODO 2: Initialize the attributes as indicated in the docstring
         # TODO 2: Print two message upon initialization:
         # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
@@ -53,10 +53,10 @@ class Hangman:
         self.word_guessed = ['_' for i in range(0,len(self.word))]
         self.num_letters = len(set(self.word))
         self.list_letters=[]
-
+       
         print(f"The mystery word has {len(self.word)} characters")
         print(f"{self.word_guessed}")
-        
+        self.drawing(4)
 
         
         pass
@@ -90,9 +90,12 @@ class Hangman:
                         self.word_guessed[key] = self.letter
             print (self.word_guessed)
             self.num_letters -= 1
+            self.drawing(self.num_lives)
             
         else: 
             self.num_lives-=1
+            print(f"{self.word_guessed}")
+            self.drawing(self.num_lives)
             print (f"You have {self.num_lives} life/lives left.")
 
         
@@ -123,6 +126,73 @@ class Hangman:
         else:
             self.list_letters.append(self.letter)
             self.check_letter(self.letter)
+    
+    def drawing (self,num_lives):
+        num_lives = self.num_lives
+        if num_lives ==4:
+            print (" _____")
+            print ("|     |")
+            print ("|       ")
+            print ("|       ") 
+            print ("|       ")
+            print ("|       ") 
+            print ("|________")
+            print ("|        |______                 0")
+            print ("|               |______         /|\\")
+            print ("|                      |______  / \\")
+            print ("|_____________________________|")
+        elif num_lives ==3 :
+            print (" _____") 
+            print ("|     |")
+            print ("|       ")
+            print ("|       ")
+            print ("|       ")
+            print ("|       ")
+            print ("|________                 0")
+            print ("|        |______         /|\\")
+            print ("|               |______  / \\")
+            print ("|                      |______")
+            print ("|_____________________________|")
+        elif num_lives==2:
+            print (" _____")
+            print ("|     |")
+            print ("|       ")
+            print ("|       ")
+            print ("|        ")
+            print ("|                  0")
+            print ("|________         /|\\")
+            print ("|        |______  / \\")
+            print ("|               |______")
+            print ("|                      |______")
+            print ("|_____________________________|")
+        elif num_lives==1:
+            print (" ______") 
+            print ("|      |")
+            print ("|       ")
+            print ("|       ")
+            print ("|           0")
+            print ("|          /|\\")
+            print ("|________  / \\")
+            print ("|        |______")
+            print ("|               |______")
+            print ("|                      |______")
+            print ("|_____________________________|")
+        elif num_lives==0: 
+            print (" ______")
+            print ("|      |")
+            print ("|      0")
+            print ("|     /|\\")
+            print ("|     / \\")
+            print ("|         ")
+            print ("|________ ")
+            print ("|        |______")
+            print ("|               |______")
+            print ("|                      |______")
+            print ("|_____________________________|")
+
+
+
+
 
 
 
@@ -133,7 +203,7 @@ class Hangman:
 
 def play_game(word_list):
     # As an aid, part of the code is already provided:
-    game = Hangman(word_list, num_lives=5)
+    game = Hangman(word_list, num_lives=4)
     # TODO 1: To test this task, you can call the ask_letter method
     # TODO 2: To test this task, upon initialization, two messages should be printed 
     # TODO 3: To test this task, you call the ask_letter method and check if the letter is in the word
@@ -152,10 +222,7 @@ def play_game(word_list):
             print ("Congratulations, you won!")
 
 
-    
 
-
-    pass
 
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
