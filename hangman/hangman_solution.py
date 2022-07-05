@@ -59,7 +59,6 @@ class Hangman:
         self.drawing(4)
 
         
-        pass
 
     def check_letter(self, letter) -> None:
         '''
