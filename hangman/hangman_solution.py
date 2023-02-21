@@ -10,7 +10,6 @@ class Hangman:
     A Hangman Game that asks the user for a letter and checks if it is in the word.
     It starts with a default number of lives and a random word from the word_list.
 
-    
     Parameters:
     ----------
     word_list: list
@@ -58,8 +57,6 @@ class Hangman:
         print(f"{self.word_guessed}")
         self.drawing(4)
 
-        
-
     def check_letter(self, letter) -> None:
         '''
         Checks if the letter is in the word.
@@ -81,8 +78,6 @@ class Hangman:
         
         self.letter = letter.lower()
        
-
-       
         if self.letter in self.word:
             for key, value in enumerate(self.word): 
                 if value == self.letter:
@@ -96,8 +91,6 @@ class Hangman:
             print(f"{self.word_guessed}")
             self.drawing(self.num_lives)
             print (f"You have {self.num_lives} life/lives left.")
-
-        
 
     def ask_letter(self):
         '''
@@ -188,17 +181,7 @@ class Hangman:
             print ("|               |______")
             print ("|                      |______")
             print ("|_____________________________|")
-
-
-
-
-
-
-
-
-        
-        
-        
+    
 
 def play_game(word_list):
     # As an aid, part of the code is already provided:
@@ -219,9 +202,6 @@ def play_game(word_list):
             print("You ran out of lives. The word was {game.word}")
         elif game.num_letters ==0:
             print ("Congratulations, you won!")
-
-
-
 
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
