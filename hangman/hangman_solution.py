@@ -199,9 +199,9 @@ def play_game(word_list):
         game.ask_letter()
     else: 
         if game.num_lives ==0:
-            print("You ran out of lives. The word was {game.word}")
+            print(f"You ran out of lives. The word was {game.word}.")
         elif game.num_letters ==0:
-            print ("Congratulations, you won!")
+            print (f"Congratulations, you won!The word was {game.word}.")
 
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
